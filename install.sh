@@ -40,4 +40,8 @@ echo "Step 8/8: Cloning TPM (Tmux Plugin Manager)"
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 echo "Setup complete!!! 💪"
-echo "Oh, and a few manual steps... launch tmux, then install tmux plugins - Ctrl + a I"
+echo "Oh, and a few manual steps...
+- launch tmux, then install tmux plugins - Ctrl + a I
+- use iterm2 powerline glyphs - https://apple.stackexchange.com/a/413332
+- change the right option key to delete whole words: iterm preferences (Cmd + ,) -> Profiles -> Keys
+- add the karabiner simple and complex modification rules."
