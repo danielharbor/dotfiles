@@ -2,7 +2,7 @@ alias ~="~ && ls"
 alias ..=".. && ls"
 alias agrp='alias G'
 alias code='open -a /Applications/Visual\ Studio\ Code.app/'
-alias eject='cd ~ && diskutil unmountDisk /Volumes/UNTITLED && echo 🧑‍🚒'
+alias eject='cd ~ && diskutil unmountDisk /Volumes/DISK_IMG && echo 🧑‍🚒'
 alias cb='code ~/.bash_profile'
 alias ci='~/.oh-my-zsh/custom/iterm_badges.zsh'
 alias cz='code ~/.zshrc'
@@ -30,12 +30,12 @@ alias ns='npm start'
 alias nv='nvim'
 alias os='sudo cu -s 115200 -l /dev/tty.usbserial'
 alias old-os='screen -L /dev/cu.usbserial 115200 –L'
-alias show-usb='ls /Volumes/UNTITLED'
+alias show-usb='ls /Volumes/DISK_IMG'
 alias sls='screen -ls'
 alias sx='screen -x'
 alias sxq='screen -X quit'
 alias sz='source ~/.zshrc'
-alias usb='cd /Volumes/UNTITLED && ls'
+alias usb='cd /Volumes/DISK_IMG && ls'
 alias v='vim'
 alias va='vim ~/github/dotfiles/aliases.zsh'
 
@@ -152,7 +152,7 @@ ccp() { cpair c -p $1 && cpair s -p $1 }
 copy-from-cpair() { cpair scp :/home/admin/bt/in-store/target/dist/Braintree-$1.tgz . -p $2 }
 copy-signed-from-cpair() { cpair scp :/home/admin/bt/in-store/target/dist/Braintree-$1-SIGNED.tgz . -p $2 }
 copy-to-cpair() { cpair scp $1 :~/ -p $2 } # copies file to /home/dharbor
-copy-to-usb () { cp $1 /Volumes/UNTITLED }
+copy-to-usb () { cp $1 /Volumes/DISK_IMG }
 
 ## Maven (https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)
 # create a new mvn app (arg: app_name)
@@ -174,7 +174,7 @@ lcd () { cd "${@:1}" && ls; }
 
 load-usb() {
   export $(cat ~/bt/in-store/target/dist/signing.env | xargs)
-  cp ~/bt/in-store/target/dist/Braintree-$BRAINTREE_VERSION-SIGNED.tgz /Volumes/UNTITLED
+  cp ~/bt/in-store/target/dist/Braintree-$BRAINTREE_VERSION-SIGNED.tgz /Volumes/DISK_IMG
   eject
 }
 
@@ -206,11 +206,13 @@ pas() {
 pau() {
   cd ~/bt/in-store
   ./pull_from_cpair_and_upload.sh $1 192.168.86.$2
-  if [ $? -eq 0 ]; then
-    say -v Daniel upload complete
-  else
-    say -v Daniel pull failed
-  fi
+  say -v Daniel upload complete
+}
+
+ptas() {
+  cd ~/bt/in-store
+  ./pull_terminal_and_socat.sh $1
+  say -v Daniel upload complete
 }
 
 tnet () { telnet 192.168.86.$1 }
