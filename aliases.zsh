@@ -18,12 +18,12 @@ alias gl='git log --oneline'  # overrides 'gl=git pull' from git plugin
 alias grh='git reset --hard'
 alias gr='g remote -vv'
 alias gs='git status'  # alternative to 'gst' alias from git plugin
-alias gsa='git stash apply' #  optionally: stash@{stash_index}
-alias gsd='git stash drop'  # overrides 'gsd' alias from git plugin
-alias gsl='git stash list'
-alias gsp='git stash pop'
-alias gss='git stash save'
-alias gssh='git stash show'
+alias gsta='git stash apply' #  optionally: stash@{stash_index}
+alias gstd='git stash drop'  # overrides 'gsd' alias from git plugin
+alias gstl='git stash list'
+alias gstp='git stash pop'
+alias gsts='git stash save'
+alias gstsh='git stash show'
 alias ip='ipconfig getifaddr en0'
 alias nrd='npm run dev'
 alias ns='npm start'
@@ -164,7 +164,7 @@ create-mvn-app() {
 encode() { echo "$1" | base64 }
 decode() { echo "$1" | base64 -d }
 gstaap() { git stash apply stash@{$1} }
-gsshp() { git stash show stash@{$1} }
+gstshp() { git stash show stash@{$1} }
 gstdp() { git stash drop stash@{$1} }
 gstpp() { git stash pop stash@{$1} }
 gstsp() { git stash show --text stash@{$1} }
