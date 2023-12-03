@@ -10,7 +10,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 brew update
 
 echo "Step 2/8: Installing mac apps"
-brew install --cask iterm2 --cask karabiner-elements --cask logi-options-plus --cask postman --cask spotify --cask notion --cask authy
+brew install --cask iterm2 --cask karabiner-elements --cask postman --cask spotify --cask notion --cask authy
 
 echo "Step 3/8: Installing oh-my-zsh"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
