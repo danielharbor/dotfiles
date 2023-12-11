@@ -112,8 +112,7 @@ da () {
 dk () { dkp || dkif; }
 dka () {
   dk && dk
-  Y docker network prune
-  Y docker volume prune
+  Y docker system prune -a --volumes
 }
 drun () { docker run -it $1; }
 alias dvls='docker volume ls'
